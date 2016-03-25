@@ -1,0 +1,50 @@
+<Invasion>:
+    id: _invasion
+    enemy_area: _enemy_area
+    shooter_area: _shooter_area
+    fleet: _fleet
+    shooter: _shooter
+    orientation: 'vertical'
+    AnchorLayout:
+        anchor_y: 'top'
+        FloatLayout:
+            id: _enemy_area
+            size_hint: 1, .7
+            canvas.before:
+                Color:
+                    rgb: 1, .3, .4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Fleet:
+                id: _fleet
+                invasion: _invasion
+                shooter: _shooter
+                canvas.before:
+                    Color:
+                        rgb: 0, .2, .3
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                cols: 8
+                padding: '10dp'
+                spacing: '10dp'
+                size_hint: .5, .4
+                pos_hint: {'top' : .9}
+                x: root.width / 4
+    AnchorLayout:
+        anchor_y: 'bottom'
+        FloatLayout:
+            id: _shooter_area
+            size_hint: 1, .3
+            canvas.before:
+                Color:
+                    rgb: 1, .7, 0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Shooter:
+                id: _shooter
+                invasion: _invasion
+                enemy_area: _enemy_area
+                pos: self.parent.width / 2 - self.width / 2, 0

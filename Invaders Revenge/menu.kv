@@ -1,0 +1,45 @@
+<Menu>:
+    size_hint: .2, .4
+    pos_hint: {'center_x' : .5, 'center_y' : .5}
+    title: 'Menu'
+    auto_dismiss: False
+
+<InvasionStartMenu>:
+    content: _menu_content
+    BoxLayout:
+        id: _menu_content
+        orientation: 'vertical'
+        padding: 2.5, 5
+        spacing: 5
+        Button:
+            text: 'Start game'
+            on_release: app.root.start_game(), root.dismiss()
+        Button:
+            text: 'Exit'
+            on_release: app.stop()
+
+<InvasionPauseMenu>:
+    content: _menu_content
+    BoxLayout:
+        id: _menu_content
+        orientation: 'vertical'
+        padding: 2.5, 5
+        spacing: 5
+        Button:
+            text: 'Continue'
+        Button:
+            text: 'Exit'
+            on_release: app.stop()
+
+<InvasionEndMenu>:
+    content: _menu_content
+    BoxLayout:
+        id: _menu_content
+        orientation: 'vertical'
+        padding: 2.5, 5
+        spacing: 5
+        Button:
+            text: 'Play again'
+        Button:
+            text: 'Exit'
+            on_release: app.stop()
